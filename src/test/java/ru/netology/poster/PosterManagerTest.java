@@ -1,13 +1,13 @@
 package ru.netology.poster;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PosterManagerTest {
-    PosterManager posterManager = new PosterManager();
+    PosterRepositiry repo = new PosterRepositiry();
+    PosterManager posterManager = new PosterManager(repo);
     Poster movie1 = new Poster(1, "A");
     Poster movie2 = new Poster(2, "AB");
     Poster movie3 = new Poster(3, "ABC");
