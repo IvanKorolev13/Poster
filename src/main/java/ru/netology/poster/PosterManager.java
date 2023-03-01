@@ -2,6 +2,15 @@ package ru.netology.poster;
 
 public class PosterManager {
     private Poster[] moviePoster = new Poster[0];
+    private int limitListing = 10;
+
+    public PosterManager(){
+    }
+
+    public PosterManager(int limitListing){
+        this.limitListing = limitListing > 0 ? limitListing : this.limitListing;
+
+    }
 
     public void add(Poster newPoster) {
         Poster[] tmp = new Poster[moviePoster.length + 1];
@@ -20,6 +29,7 @@ public class PosterManager {
         return result;
     }
 
+    /*
     public Poster[] findLast(int limit) {
         int resultLength = limit;
         if (resultLength > moviePoster.length) {
@@ -31,9 +41,10 @@ public class PosterManager {
         }
         return result;
     }
+     */
 
     public Poster[] findLast() {
-        int resultLength = 10;
+        int resultLength = limitListing;
         if (resultLength > moviePoster.length) {
             resultLength = moviePoster.length;
         }

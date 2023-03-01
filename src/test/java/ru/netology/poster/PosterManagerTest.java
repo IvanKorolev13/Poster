@@ -137,6 +137,7 @@ class PosterManagerTest {
 
     @Test
     public void reverseInputIfLessLimitPosterAndWithLimitAbove10() {
+        PosterManager posterManager = new PosterManager(11);
         posterManager.add(movie1);
         posterManager.add(movie2);
         posterManager.add(movie3);
@@ -149,13 +150,14 @@ class PosterManagerTest {
         posterManager.add(movie10);
 
         Poster[] expected = {movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
-        Poster[] actual = posterManager.findLast(11);
+        Poster[] actual = posterManager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void reverseInputIfEqualLimitPosterAndWithLimitAbove10() {
+        PosterManager posterManager = new PosterManager(11);
         posterManager.add(movie1);
         posterManager.add(movie2);
         posterManager.add(movie3);
@@ -169,13 +171,14 @@ class PosterManagerTest {
         posterManager.add(movie11);
 
         Poster[] expected = {movie11, movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3, movie2, movie1};
-        Poster[] actual = posterManager.findLast(11);
+        Poster[] actual = posterManager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void reverseInputIfOverLimitPosterAndWithLimitAbove10() {
+        PosterManager posterManager = new PosterManager(11);
         posterManager.add(movie1);
         posterManager.add(movie2);
         posterManager.add(movie3);
@@ -191,7 +194,7 @@ class PosterManagerTest {
         posterManager.add(movie1);
 
         Poster[] expected = {movie1, movie12, movie11, movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3};
-        Poster[] actual = posterManager.findLast(11);
+        Poster[] actual = posterManager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
